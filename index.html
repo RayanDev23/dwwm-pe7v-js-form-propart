@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire d'inscription</title>
+</head>
+<body>
+    <h1>Formulaire d'inscription</h1>
+    <input type="radio" id="particulier" name="type_formulaire" value="particulier" checked>
+    <label for="particulier">Formulaire Particulier</label>
+    <input type="radio" id="professionnel" name="type_formulaire" value="professionnel">
+    <label for="professionnel">Formulaire Professionnel</label><br>
+
+    <div id="particulier_form">
+        <form action="traitement_formulaire_particulier.php" method="POST">
+            <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required><br>
+
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" required><br>
+
+        <label>Genre :</label>
+        <input type="radio" id="homme" name="genre" value="homme" required>
+        <label for="homme">Homme</label>
+        <input type="radio" id="femme" name="genre" value="femme" required>
+        <label for="femme">Femme</label>
+        <input type="radio" id="autre" name="genre" value="autre" required>
+        <label for="autre">Autre</label><br>
+
+        <label for="email">Adresse email :</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="adresse">Adresse postale :</label><br>
+        <input type="text" id="adresse" name="adresse" placeholder="Adresse" required><br>
+        <input type="text" id="code_postal" name="code_postal" placeholder="Code postal" required>
+        <input type="text" id="ville" name="ville" placeholder="Ville" required><br>
+
+        <label for="telephone_fixe">Numéro de téléphone fixe :</label>
+        <input type="tel" id="telephone_fixe" name="telephone_fixe" required><br>
+
+        <label for="telephone_portable">Numéro de téléphone portable :</label>
+        <input type="tel" id="telephone_portable" name="telephone_portable" required><br>
+
+        <label for="date_naissance">Date de naissance :</label>
+        <input type="date" id="date_naissance" name="date_naissance" required><br>
+
+        <label for="accepter_cgv">J'accepte les CGV :</label>
+        <input type="checkbox" id="accepter_cgv" name="accepter_cgv" required><br>
+
+        <label for="accepter_communications">J'accepte les communications commerciales :</label>
+        <input type="checkbox" id="accepter_communications" name="accepter_communications" required><br>
+
+        <input type="submit" value="Envoyer">
+        </form>
+    </div>
+
+    <div id="professionnel_form" style="display: none;">
+        <form action="traitement_formulaire_professionnel.php" method="POST">
+            <label for="raison_sociale">Raison sociale :</label>
+        <input type="text" id="raison_sociale" name="raison_sociale" required><br>
+
+        <label for="siren">Numéro de SIREN/SIRET :</label>
+        <input type="text" id="siren" name="siren" required><br>
+
+        <label for="email">Adresse mail de contact :</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="telephone">Numéro de téléphone de contact :</label>
+        <input type="tel" id="telephone" name="telephone" required><br>
+
+        <label for="adresse">Adresse postale :</label>
+        <input type="text" id="adresse" name="adresse" required><br>
+
+        <label for="code_postal">Code postal :</label>
+        <input type="text" id="code_postal" name="code_postal" required><br>
+
+        <label for="ville">Ville :</label>
+        <input type="text" id="ville" name="ville" required><br>
+
+        <label for="tva_intracommunautaire">Numéro de TVA intracommunautaire :</label>
+        <input type="text" id="tva_intracommunautaire" name="tva_intracommunautaire"><br>
+
+        <input type="checkbox" id="accepter_cgv" name="accepter_cgv" required>
+        <label for="accepter_cgv">J'accepte les Conditions Générales de Vente (CGV)</label><br>
+
+        <input type="checkbox" id="accepter_communications_commerciales" name="accepter_communications_commerciales">
+        <label for="accepter_communications_commerciales">J'accepte de recevoir des communications commerciales</label><br>
+
+        <input type="submit" value="Créer le compte">
+        </form>
+    </div>
+
+    <script>
+        const particulierForm = document.getElementById('particulier_form');
+        const professionnelForm = document.getElementById('professionnel_form');
+        const particulierRadio = document.getElementById('particulier');
+        const professionnelRadio = document.getElementById('professionnel');
+
+        particulierRadio.addEventListener('click', function() {
+            particulierForm.style.display = 'block';
+            professionnelForm.style.display = 'none';
+        });
+
+        professionnelRadio.addEventListener('click', function() {
+            particulierForm.style.display = 'none';
+            professionnelForm.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
